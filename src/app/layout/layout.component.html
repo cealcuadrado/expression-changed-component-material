@@ -1,4 +1,6 @@
 <section class="layout">
-  <p>layout works!</p>
+  <div *ngIf="posts">
+    <p>{{posts | json}}</p>
+  </div>
 </section>
 

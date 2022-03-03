@@ -8,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
+  posts: any;
+
   constructor(
     public http: HttpClient
   ) { }
 
   ngOnInit(): void {
-    this.http.get('https://jsonplaceholder.typicode.com/users').subscribe(users => {
-      console.log(users);
+    this.http.get('https://jsonplaceholder.typicode.com/posts').subscribe(posts => {
+      this.posts = posts;
     });
   }
 
