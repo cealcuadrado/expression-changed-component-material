@@ -19,7 +19,9 @@ export class LoaderInterceptor implements HttpInterceptor {
   ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    this.dialogRef = this.dialog.open(DialogLoaderComponent);
+    Promise.resolve(null).then(() => {
+       this.dialogRef = this.dialog.open(DialogLoaderComponent);
+    });
 
     return next.handle(request).pipe(
       finalize(() => this.dialogRef.close())
